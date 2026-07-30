@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #e0f7fa 0%, #fff9c4 50%, #fce4ec 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e0f7fa;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4fc3f7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0288d1;
+}
+
+/* Kid button style */
+.btn-kid {
+    @apply rounded-3xl font-bold text-white shadow-lg transition-all duration-200 active:scale-95 hover:scale-105 cursor-pointer select-none;
+}
+
+/* Card hover */
+.card-kid {
+    @apply rounded-3xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer;
+}
+
+/* SVG coloring paths */
+.colorable-path {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    stroke: #2c2c2c;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.colorable-path:hover {
+    filter: brightness(0.9) drop-shadow(0 0 4px rgba(79, 195, 247, 0.6));
+}
+
+/* Animated background clouds */
+@keyframes cloudFloat {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+.cloud-anim {
+    animation: cloudFloat 6s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--progress-width);
+    }
+}
+
+.progress-animated {
+    animation: progressFill 1.5s ease-out forwards;
+}
+
+/* Star sparkle */
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.3);
+    }
+}
+
+.sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Confetti burst container */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
